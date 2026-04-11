@@ -1,0 +1,451 @@
+function setup() {
+createCanvas(600, 600);
+background (184, 230, 195);
+}
+
+function draw() {
+  noStroke();
+  fill(255,230,200);
+ellipse(310, 310, 350, 470);
+
+//shade on face
+fill (245,220,190);
+beginShape();
+vertex(413,459);
+vertex(386,527);
+vertex(336,557);
+vertex(345,530);
+vertex(358,502);
+endShape(CLOSE);
+
+beginShape();
+vertex(186,323);
+vertex(218,416);
+vertex(255,471);
+vertex(291,504);
+vertex(241,490);
+vertex(206,455);
+vertex(198,424);
+vertex(185,368);
+endShape(CLOSE);
+
+//nose
+fill(255, 180, 190);
+beginShape();
+vertex(322,309);
+vertex(340,343);
+vertex(352,351);
+vertex(354,358);
+vertex(354,366);
+vertex(350,372);
+vertex(343,373);
+vertex(336,373);
+vertex(330,370);
+vertex(333,364);
+vertex(344,361);
+endShape(CLOSE);
+
+//lips
+beginShape();
+vertex(256,416);
+vertex(303,410);
+vertex(313,407);
+vertex(319,414);
+vertex(331,407);
+vertex(375,413);
+vertex(389,417);
+vertex(358,425);
+vertex(343,432);
+vertex(311,433);
+vertex(282,426);
+endShape(CLOSE);
+ 
+//glasses
+fill (101,67,33);
+beginShape();
+vertex(165,242);
+vertex(204,234);
+vertex(245,239);
+vertex(277,247);
+vertex(295,258);
+vertex(329,257);
+vertex(359,247);
+vertex(393,242);
+vertex(437,243);
+vertex(466,247);
+vertex(467,268);
+vertex(455,301);
+vertex(437,332);
+vertex(408,340);
+vertex(376,337);
+vertex(353,321);
+vertex(339,291);
+vertex(336,274);
+vertex(321,267);
+vertex(304,272);
+vertex(296,294);
+vertex(280,324);
+vertex(265,336);
+vertex(228,336);
+vertex(195,327);
+vertex(181,306);
+vertex(170,265);
+endShape(CLOSE);
+
+//left eye glass
+fill (255,230,200);
+beginShape();
+vertex(193,248);
+vertex(235,246);
+vertex(272,254);
+vertex(288,264);
+vertex(291,283);
+vertex(286,303);
+vertex(276,318);
+vertex(261,329);
+vertex(239,331);
+vertex(214,329);
+vertex(201,320);
+vertex(188,293);
+vertex(183,272);
+vertex(183,256);
+endShape(CLOSE);
+
+//right eye glass
+beginShape();
+vertex(445,260);
+vertex(443,294);
+vertex(433,313);
+vertex(426,327);
+vertex(409,332);
+vertex(386,331);
+vertex(363,324);
+vertex(350,305);
+vertex(347,291);
+vertex(347,277);
+vertex(355,262);
+vertex(380,252);
+vertex(410,251);
+vertex(439,254);
+endShape(CLOSE);
+  
+//left eye
+fill(240);
+ellipse(240, 290, 50, 35);
+fill (97,124,88);
+circle(240, 290, 25);
+
+//right eye
+fill (240);
+ellipse(385, 290, 50, 35);
+fill (97,124,88);
+circle(385, 290, 25);
+
+//left eyebrow
+fill (122,106,79);
+beginShape();
+vertex(195,271);
+vertex(212,255);
+vertex(245,249);
+vertex(269,252);
+vertex(292,268);
+vertex(267,263);
+vertex(243,255);
+endShape(CLOSE);
+
+//right eyebrow
+beginShape();
+vertex(445,271);
+vertex(438,255);
+vertex(395,249);
+vertex(371,252);
+vertex(348,268);
+vertex(373,263);
+vertex(397,255);
+endShape(CLOSE);
+
+//neck
+  noStroke();
+fill(255, 230, 200);
+rect(225, 520, 175, 240);
+
+//left shadow on neck
+fill (235,210,180)
+beginShape();
+vertex(243,488);
+vertex(294,517);
+vertex(302,553);
+vertex(277,547);
+endShape(CLOSE);
+
+//sweater
+fill (240);
+beginShape();
+vertex(0,531);
+vertex(31,486);
+vertex(71,479);
+vertex(149,476);
+vertex(201,513);
+vertex(264,538);
+vertex(301,557);
+vertex(329,556);
+vertex(371,554);
+vertex(411,529);
+vertex(448,493);
+vertex(482,482);
+vertex(537,493);
+vertex(571,503);
+vertex(600,504);
+vertex(600,600);
+vertex(0,600);
+endShape(CLOSE);
+
+//right hair
+fill (122,106,79);
+ beginShape();
+vertex(254,73);
+vertex(282,54);
+vertex(321,47);
+vertex(355,49);
+vertex(392,54);
+vertex(442,75);
+vertex(468,105);
+vertex(481,130);
+vertex(483,160);
+vertex(485,182);
+vertex(502,208);
+vertex(543,272);
+vertex(557,303);
+vertex(562,341);
+vertex(569,369);
+vertex(573,379);
+vertex(569,401);
+vertex(562,415);
+vertex(561,427);
+vertex(568,447);
+vertex(578,471);
+vertex(581,487);
+vertex(583,523);
+vertex(572,545);
+vertex(556,562);
+vertex(548,573);
+vertex(554,586);
+vertex(570,592);
+vertex(570,600);
+vertex(354,600);
+vertex(399,531);
+vertex(416,495);
+vertex(434,458);
+vertex(438,419);
+vertex(456,326);
+vertex(464,276);
+vertex(458,243);
+vertex(435,182);
+vertex(409,140);
+vertex(364,125);
+vertex(341,133);
+vertex(321,141);
+vertex(300,124);
+vertex(274,115);
+vertex(254,120);
+vertex(241,110);
+vertex(241,89);
+  endShape(CLOSE);
+  
+  beginShape();
+  fill (111,78,55);
+vertex(448,345);
+vertex(441,373);
+vertex(426,439);
+vertex(404,474);
+vertex(386,499);
+vertex(359,515);
+vertex(373,523);
+vertex(397,519);
+vertex(422,498);
+vertex(446,469);
+vertex(458,437);
+vertex(470,386);
+vertex(463,328);
+vertex(459,303);
+endShape(CLOSE);
+
+fill (196,164,132);
+beginShape();
+vertex(485,440);
+vertex(452,461);
+vertex(413,496);
+vertex(398,525);
+vertex(392,549);
+vertex(386,600);
+vertex(445,600);
+vertex(445,537);
+vertex(455,486);
+endShape(CLOSE);
+
+ fill (111,78,55);
+beginShape();
+vertex(439,464);
+vertex(397,522);
+vertex(368,561);
+vertex(342,583);
+vertex(380,578);
+vertex(401,564);
+endShape(CLOSE);
+
+fill (134,119,95)
+beginShape();
+vertex(237,86);
+vertex(263,60);
+vertex(293,59);
+vertex(321,66);
+vertex(340,77);
+vertex(354,81);
+vertex(377,103);
+vertex(329,131);
+vertex(315,106);
+vertex(284,111);
+vertex(239,127);
+endShape(CLOSE);
+
+fill (123,119,95);
+beginShape();
+vertex(455,443);
+vertex(425,480);
+vertex(405,508);
+vertex(361,543);
+vertex(396,538);
+vertex(429,512);
+vertex(445,472);
+endShape(CLOSE);
+
+//right hair grey streak
+fill (216,216,216)
+beginShape();
+vertex(252,88);
+vertex(275,67);
+vertex(308,62);
+vertex(352,68);
+vertex(380,93);
+vertex(345,77);
+vertex(310,71);
+endShape(CLOSE);
+  
+  //left hair
+  fill (122,106,79);
+  beginShape();
+vertex(238,84);
+vertex(232,119);
+vertex(235,150);
+vertex(201,181);
+vertex(193,211);
+vertex(166,266);
+vertex(176,285);
+vertex(180,323);
+vertex(181,398);
+vertex(188,439);
+vertex(211,481);
+vertex(222,481);
+vertex(264,536);
+vertex(277,562);
+vertex(286,600);
+vertex(84,600);
+vertex(81,572);
+vertex(76,439);
+vertex(79,410);
+vertex(130,273);
+vertex(130,228);
+vertex(113,256);
+vertex(105,289);
+vertex(96,274);
+vertex(106,230);
+vertex(121,205);
+vertex(148,161);
+vertex(186,121);
+vertex(201,103);
+  endShape(CLOSE);
+ 
+  fill (134,119,95)
+  beginShape();
+vertex(240,84);
+vertex(237,111);
+vertex(231,121);
+vertex(230,157);
+vertex(213,160);
+vertex(213,136);
+vertex(217,116);
+endShape(CLOSE);
+
+fill (111,78,55)
+beginShape();
+vertex(181,337);
+vertex(191,414);
+vertex(209,450);
+vertex(236,483);
+vertex(251,505);
+vertex(273,537);
+vertex(279,558);
+vertex(277,592);
+vertex(251,566);
+vertex(211,526);
+vertex(209,477);
+vertex(188,450);
+vertex(177,429);
+vertex(172,415);
+vertex(169,400);
+vertex(171,374);
+endShape(CLOSE);
+
+//left hair highlight
+fill (196,164,132)
+beginShape();
+vertex(75,432);
+vertex(85,484);
+vertex(99,528);
+vertex(118,563);
+vertex(160,596);
+vertex(125,548);
+vertex(105,510);
+endShape(CLOSE);
+
+//left hair grey streak
+fill (216,216,216)
+beginShape();
+vertex(234,110);
+vertex(202,117);
+vertex(176,141);
+vertex(153,167);
+vertex(141,191);
+vertex(138,214);
+vertex(136,247);
+vertex(131,275);
+vertex(152,213);
+vertex(170,167);
+endShape(CLOSE);
+
+//flower
+fill (128,0,32);
+beginShape();
+vertex(139,291);
+vertex(100,305);
+vertex(59,315);
+vertex(89,288);
+vertex(132,285);
+vertex(105,262);
+vertex(92,223);
+vertex(123,244);
+vertex(135,275);
+vertex(143,251);
+vertex(175,243);
+vertex(172,273);
+vertex(148,285);
+vertex(183,292);
+vertex(191,325);
+vertex(162,325);
+vertex(144,298);
+vertex(151,325);
+vertex(131,353);
+vertex(121,310);
+endShape(CLOSE);
+
+}
