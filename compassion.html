@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TK Catch Compassion</title>
+</head>
+<body>
+
+<h1>CATCH COMPASSION</h1>
+
+<iframe src="game3/index.html" height="606"; width="808" title="game"></iframe>
+
+
+<p>Welcome to my game of catching compassion. Start the game and try to click on the heart.  The heart represents: kindness, love, care, compassion, acceptance, inclusion, human decency, basic human rights.  At level 2, be careful of the bad actor trying to stop you from finding compassion.  He is trying to squash it.  At level 3, you have another bad actor to contend with, they are both trying to stop you from getting compassion.  Because of their work, compassion is becoming harder and harder to find, but don't give up.  Level 4, they inflate themselves, trying to make it harder for you but don't give up.  Reach 30 and you win the game.  Play as many times as you like.  Good luck and Catch that Compassion.
+</p>
+
+
+<h1>The Code</h1>
+
+<pre>
+var ballx = 300;
+var bally = 300;
+var ballSize = 50;
+var score = 0;
+var gameState = "intro";
+
+var img;
+var img2;
+var winGif;
+
+// bad object for level 2
+var badX = 100;
+var badY = 100;
+var badSize = 60;
+var badSpeedX = 3;
+var badSpeedY = 2;
+var badImg;
+
+// second bad object (Level 3)
+var bad2X = 200;
+var bad2Y = 200;
+var bad2Size = 60;
+var bad2SpeedX = -3;
+var bad2SpeedY = 4;
+var badImg2;
+
+function preload() {
+  img2 = loadImage('https://tanyak-art.github.io/images/heart2.png');
+  img = loadImage('https://tanyak-art.github.io/images/map.png');
+  winGif = loadImage('https://tanyak-art.github.io/images/fireworks.gif');
+  badImg = loadImage('https://tanyak-art.github.io/images/miller.png');
+  badImg2 = loadImage('https://tanyak-art.github.io/images/donald.png');
+}
+
+function setup() {
+  createCanvas(800, 600);
+  textAlign(CENTER);
+  textSize(30);
+}
+
+function draw() {
+  if (gameState !== "win") {
+    background(img);
+  }
+
+  if (gameState === "intro") {
+    levelIntro();
+  }
+
+  if (gameState === "L1") {
+    levelOne();
+  }
+
+  if (gameState === "L2") {
+    levelTwo();
+  }
+
+  if (gameState === "L3") {
+    levelThree();
+  }
+
+  if (gameState === "L4") {
+    levelFour();
+  }
+
+  if (gameState === "win") {
+    levelWin();
+  }
+
+  if (gameState !== "intro" && gameState !== "win") {
+    fill(0);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+    text("Score: " + score, width / 2, 30);
+  }
+}
+
+function levelIntro() {
+  fill(0);
+  textSize(30);
+  textAlign(CENTER, CENTER);
+  text("Welcome to the USA, Press 1 to play", width / 2, height / 2);
+}
+
+function levelOne() {
+  fill(0);
+  textSize(30);
+  textAlign(CENTER, CENTER);
+  text("Level 1", width / 2, height - 20);
+
+  var distToBall = dist(ballx, bally, mouseX, mouseY);
+
+  if (distToBall < ballSize / 2) {
+    ballx = random(width);
+    bally = random(height);
+    score = score + 1;
+  }
+
+  if (score > 5) {
+    gameState = "L2";
+  }
+
+  image(img2, ballx - ballSize / 2, bally - ballSize / 2, ballSize, ballSize);
+  line(ballx, bally, mouseX, mouseY);
+}
+
+function levelTwo() {
+  background(img);
+  fill(0);
+  textSize(30);
+  textAlign(CENTER, CENTER);
+  text("Level 2", width / 2, height - 20);
+
+  var distToBall = dist(ballx, bally, mouseX, mouseY);
+  if (distToBall < ballSize / 2) {
+    ballx = random(width);
+    bally = random(height);
+    score = score + 1;
+  }
+
+  badX = badX + badSpeedX;
+  badY = badY + badSpeedY;
+
+  if (badX < 0 || badX > width - badSize) {
+    badSpeedX = badSpeedX * -1;
+  }
+
+  if (badY < 0 || badY > height - badSize) {
+    badSpeedY = badSpeedY * -1;
+  }
+
+  var distToBad = dist(badX + badSize / 2, badY + badSize / 2, mouseX, mouseY);
+  if (distToBad < badSize / 2) {
+    score = max(0, score - 1);
+    badX = random(width - badSize);
+    badY = random(height - badSize);
+  }
+
+  if (score > 10) {
+    gameState = "L3";
+  }
+
+  image(img2, ballx - ballSize / 2, bally - ballSize / 2, ballSize, ballSize);
+  image(badImg, badX, badY, badSize, badSize);
+}
+
+function levelThree() {
+  background(img);
+  fill(0);
+  textSize(30);
+  textAlign(CENTER, CENTER);
+  text("Level 3", width / 2, height - 20);
+
+  var distToBall = dist(ballx, bally, mouseX, mouseY);
+  if (distToBall < ballSize / 2) {
+    ballx = random(width);
+    bally = random(height);
+    ballSize = ballSize - 1;
+    score = score + 1;
+  }
+
+  badX += badSpeedX;
+  badY += badSpeedY;
+
+  if (badX < 0 || badX > width - badSize) {
+    badSpeedX *= -1;
+  }
+  if (badY < 0 || badY > height - badSize) {
+    badSpeedY *= -1;
+  }
+
+  var distToBad = dist(badX + badSize / 2, badY + badSize / 2, mouseX, mouseY);
+  if (distToBad < badSize / 2) {
+    score = max(0, score - 1);
+    badX = random(width - badSize);
+    badY = random(height - badSize);
+  }
+
+  bad2X += bad2SpeedX;
+  bad2Y += bad2SpeedY;
+
+  if (bad2X < 0 || bad2X > width - bad2Size) {
+    bad2SpeedX *= -1;
+  }
+  if (bad2Y < 0 || bad2Y > height - bad2Size) {
+    bad2SpeedY *= -1;
+  }
+
+  var distToBad2 = dist(bad2X + bad2Size / 2, bad2Y + bad2Size / 2, mouseX, mouseY);
+  if (distToBad2 < bad2Size / 2) {
+    score = max(0, score - 1);
+    bad2X = random(width - bad2Size);
+    bad2Y = random(height - bad2Size);
+  }
+
+  if (score > 20) {
+    gameState = "L4";
+  }
+
+  image(img2, ballx - ballSize / 2, bally - ballSize / 2, ballSize, ballSize);
+  image(badImg, badX, badY, badSize, badSize);
+  image(badImg2, bad2X, bad2Y, bad2Size, bad2Size);
+}
+
+function levelFour() {
+  background(img);
+  fill(0);
+  textSize(30);
+  textAlign(CENTER, CENTER);
+  text("Level 4", width / 2, height - 20);
+
+  var distToBall = dist(ballx, bally, mouseX, mouseY);
+  if (distToBall < ballSize / 2) {
+    ballx = random(width);
+    bally = random(height);
+    ballSize = ballSize - 1;
+    score = score + 1;
+  }
+
+  var biggerSize1 = badSize + 20;
+  var biggerSize2 = bad2Size + 20;
+
+  badX += badSpeedX;
+  badY += badSpeedY;
+
+  if (badX < 0 || badX > width - biggerSize1) {
+    badSpeedX *= -1;
+  }
+  if (badY < 0 || badY > height - biggerSize1) {
+    badSpeedY *= -1;
+  }
+
+  var distToBad = dist(badX + biggerSize1 / 2, badY + biggerSize1 / 2, mouseX, mouseY);
+  if (distToBad < biggerSize1 / 2) {
+    score = max(0, score - 1);
+    badX = random(width - biggerSize1);
+    badY = random(height - biggerSize1);
+  }
+
+  bad2X += bad2SpeedX;
+  bad2Y += bad2SpeedY;
+
+  if (bad2X < 0 || bad2X > width - biggerSize2) {
+    bad2SpeedX *= -1;
+  }
+  if (bad2Y < 0 || bad2Y > height - biggerSize2) {
+    bad2SpeedY *= -1;
+  }
+
+  var distToBad2 = dist(bad2X + biggerSize2 / 2, bad2Y + biggerSize2 / 2, mouseX, mouseY);
+  if (distToBad2 < biggerSize2 / 2) {
+    score = max(0, score - 1);
+    bad2X = random(width - biggerSize2);
+    bad2Y = random(height - biggerSize2);
+  }
+
+  if (score > 29) {
+    gameState = "win";
+  }
+
+  image(img2, ballx - ballSize / 2, bally - ballSize / 2, ballSize, ballSize);
+  image(badImg, badX, badY, biggerSize1, biggerSize1);
+  image(badImg2, bad2X, bad2Y, biggerSize2, biggerSize2);
+}
+
+function levelWin() {
+  image(winGif, 0, 0, width, height);
+
+  fill(255);
+  textSize(30);
+  textAlign(CENTER, CENTER);
+  text("Hooray! You beat autocracy! Hooray for Compassion!", width / 2, height / 2 - 70);
+
+  textSize(20);
+  text("Press 2 to play again", width / 2, height / 2 + 30);
+}
+
+function keyPressed() {
+  if (gameState === "intro" && key === '1') {
+    gameState = "L1";
+  }
+
+  if (gameState === "win" && key === '2') {
+    restartGame();
+  }
+}
+
+function restartGame() {
+  score = 0;
+  ballx = random(width);
+  bally = random(height);
+  ballSize = 50;
+
+  badX = random(width - badSize);
+  badY = random(height - badSize);
+
+  bad2X = random(width - bad2Size);
+  bad2Y = random(height - bad2Size);
+
+  gameState = "intro";
+}
+</pre>
+
+</body>
+</html>
